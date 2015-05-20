@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
   <head>
     <meta charset="utf-8">
 
@@ -27,59 +27,62 @@
     <meta name="msapplication-TileImage" content="{{ BASE_PATH }}/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link href="{{ ASSET_PATH }}/resources/material/css/material.min.css" rel="stylesheet">
-    <link href="{{ ASSET_PATH }}/resources/material/css/material-wfont.min.css" rel="stylesheet">
-    <link href="{{ ASSET_PATH }}/resources/bootstrap/css/bootstrap-paper.min.css" rel="stylesheet">
-    <link href="{{ ASSET_PATH }}/resources/material/css/ripples.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link href="{{ ASSET_PATH }}/css/syntax-monokai-light.css" rel="stylesheet">
+    <link href="{{ ASSET_PATH }}/css/wd.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet">
-  
-    <!--[if lt IE 9]>
-      <script src="{{ ASSET_PATH }}/resources/respond/Respond.min.js"></script>
-    <![endif]-->
 
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-
   </head>
 
   <body>
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-	  <a class="navbar-brand" href="{{ HOME_PATH }}"><i class="fa fa-home"></i> {{ site.title }}</a>
-        </div>
-
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            {% assign pages_list = site.pages %}
-            {% assign group = 'navigation' %}
-            {% include JB/pages_list %}
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="container">
-      {{ content }}
-      <hr>
-      <footer>
-        <p>
-          &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
-        </p>
-      </footer>
+  <div class="wd-header">
+    <div class="wd-content" layout="row" layout-align="space-between center">
+      <a layout="row" layout-align="start center" href="/">
+        <h1 class="brand">WEDDIAN
+          <small>BLOG</small>
+        </h1>
+        <img src="{{ ASSET_PATH }}/img/logo.png" class="brand-logo">
+      </a>
     </div>
+  </div>
+
+  <div class="wd-content">
+    {{ content }}
+  </div>
+
+  <footer>
+    <p><span>Weddian Blog</span><br/><a href="http://app.weddian.de/imprint">Impressum</a> | <a href="http://app.weddian.de/terms">AGB</a> | <a
+            href="http://app.weddian.de/privacy">Datenschutz</a> | <a href="http://app.weddian.de/data/weddian-mediadaten-2015.pdf"
+                                                 target="_self">Mediadaten</a>
+    </p>
+  </footer>
 
     {% include JB/analytics %}
-    <script src="{{ ASSET_PATH }}/resources/jquery/jquery-2.1.1.min.js"></script>
-    <script src="{{ ASSET_PATH }}/resources/bootstrap/js/bootstrap.min.js"></script>
-    <script src="{{ ASSET_PATH }}/resources/material/js/ripples.min.js"></script>
-    <script src="{{ ASSET_PATH }}/resources/material/js/material.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/i18n/angular-locale_de-de.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-aria.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.8.3/angular-material.js"></script>
+  <script type="text/javascript">
+    angular.module('app', ['ngMaterial']).config(function ($mdThemingProvider) {
+      var hp24Palette = $mdThemingProvider.extendPalette('pink', {
+        '50': 'FAE6F7',
+        '100': 'F4C6EA',
+        '200': 'ECA4DF',
+        '300': 'E380D0',
+        '400': 'DD68C7',
+        '500': 'E070C8',
+        '600': 'BF47A9',
+        '700': 'A73F92',
+        '800': '8D367C',
+        '900': '622756'
+      });
+      $mdThemingProvider.definePalette('hp24', hp24Palette);
+      $mdThemingProvider.theme('default')
+              .primaryPalette('hp24').accentPalette('purple');
+    });
+  </script>
   </body>
 </html>
