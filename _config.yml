@@ -11,14 +11,11 @@ excerpt_separator: "<!--more-->"
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : John Doe Website
-tagline: Site Tagline
+title : Weddian Blog
 author :
-  name : John Doe
-  email : john.doe@gitmail.org
-  github : johndoe
-  twitter : johndoe
-  feedburner : johndoefeedname
+  name : Weddian
+  email : team@weddian.de
+  github : weddian
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -28,7 +25,7 @@ author :
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://sentenza.github.io/jekyll-material-design
+production_url : http://weddian.github.io/blog
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -57,7 +54,7 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : http://sentenza.github.io/jekyll-material-design
+  BASE_PATH : http://weddian.github.io/blog
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
@@ -101,7 +98,7 @@ JB :
   # Set 'provider' to false to turn analytics off globally.
   #        
   analytics :
-    provider : google 
+    provider :
     google : 
         tracking_id : 'UA-***'
     getclicky :
